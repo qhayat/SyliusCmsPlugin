@@ -1,0 +1,4 @@
+# Delete these routes and define your own shop routes here
+qamar_sylius_cms_plugin_shop_page:
+    path: /{_local}/{slug}
+    controller: Qamar\SyliusCmsPlugin\Controller\Shop\PageController

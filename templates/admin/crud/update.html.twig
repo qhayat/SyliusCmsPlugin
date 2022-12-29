@@ -1,0 +1,39 @@
+{% extends '@SyliusAdmin/layout.html.twig' %}
+
+{% set header = configuration.vars.header|default(metadata.applicationName~'.ui.edit_'~metadata.name) %}
+{% set event_prefix = metadata.applicationName ~ '.admin.' ~ metadata.name ~ '.update' %}
+
+{% block title %}{{ header|trans }} {{ parent() }}{% endblock %}
+
+{% form_theme form '@SyliusAdmin/Form/theme.html.twig' %}
+
+{% block content %}
+    {{ sylius_template_event([event_prefix, 'sylius.admin.update'], _context) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    {{ sylius_template_event([event_prefix ~ '.stylesheets', 'sylius.admin.update.stylesheets'], { 'metadata': metadata }) }}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/qamarsyliuscmsplugin/tiny.min.js') }}"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea[name="sylius_resource[content]"]',
+            height: 500,
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table paste imagetools wordcount'
+            ],
+        });
+
+        document.querySelectorAll("input[name='sylius_resource[slug]']").item(0).disabled = true;
+    </script>
+    {{ parent() }}
+
+    {{ sylius_template_event([event_prefix ~ '.javascripts', 'sylius.admin.update.javascripts'], { 'metadata': metadata }) }}
+{% endblock %}

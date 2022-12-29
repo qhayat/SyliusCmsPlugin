@@ -1,0 +1,15 @@
+# Define your own admin routes here
+app_admin_setting:
+    resource: |
+        alias: qamar_sylius_cms_plugin.page
+        section: admin
+        templates: "@QamarSyliusCmsPlugin\\admin\\crud"
+        redirect: update
+        grid: qamar_sylius_cms_plugin_page
+        vars:
+            all:
+                subheader: qamar_sylius_cms_plugin.ui.page
+            index:
+                icon: 'file image outline'
+    type: sylius.resource
+    prefix: /admin

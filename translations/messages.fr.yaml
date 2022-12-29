@@ -1,0 +1,12 @@
+qamar_sylius_cms_plugin:
+    ui:
+        pages: Pages
+        edit_page: Editer la page
+        page: Page
+        page_sub:
+            title: Titre
+            slug: Slug
+            enabled: Active
+            disabled: Désactivé
+        cms_menu_label: CMS
+        new_page: Nouvelle page

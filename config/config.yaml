@@ -1,0 +1,39 @@
+sylius_resource:
+    resources:
+        qamar_sylius_cms_plugin.page:
+            classes:
+                model: Qamar\SyliusCmsPlugin\Entity\Page
+
+sylius_grid:
+    grids:
+        qamar_sylius_cms_plugin_page:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Qamar\SyliusCmsPlugin\Entity\Page
+            fields:
+                title:
+                    type: string
+                    label: qamar_sylius_cms_plugin.ui.page_sub.title
+                slug:
+                    type: string
+                    label: qamar_sylius_cms_plugin.ui.page_sub.slug
+                enabled:
+                    type: twig
+                    label: qamar_sylius_cms_plugin.ui.page_sub.enabled
+                    options:
+                        template: "@QamarSyliusCmsPlugin/admin/pages/grid/enabled.html.twig"
+
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+    
+sylius_labs_doctrine_migrations_extra:
+    migrations:
+        'Qamar\SyliusCmsPlugin\Migrations': ~

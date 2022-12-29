@@ -1,0 +1,8 @@
+{% set map = {
+    1: {'color': 'teal', 'icon': 'checkmark', 'text': 'qamar_sylius_cms_plugin.ui.page_sub.enabled'},
+    0: {'color': 'gray', 'icon': 'remove', 'text': 'qamar_sylius_cms_plugin.ui.page_sub.disabled'},
+} %}
+
+<span class="ui label {{ map[data].color }}">
+    <p><i class="{{ map[data].icon }} icon"></i>{{ map[data].text | trans }}</p>
+</span>

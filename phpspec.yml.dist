@@ -1,0 +1,4 @@
+suites:
+    main:
+        namespace: Qamar\SyliusCmsPlugin
+        psr4_prefix: Qamar\SyliusCmsPlugin

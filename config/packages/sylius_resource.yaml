@@ -1,0 +1,10 @@
+# @see https://github.com/Sylius/SyliusResourceBundle/blob/master/docs/index.md
+sylius_resource:
+    # Override default settings
+    #settings:
+
+    # Configure your resources
+    resources:
+#        qamar_sylius_cms_plugin.page:
+#            classes:
+#                model: Qamar\SyliusCmsPlugin\Entity\Page
